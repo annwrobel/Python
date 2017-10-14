@@ -1,4 +1,3 @@
-# Szubienica
 
 import random
 
@@ -101,8 +100,7 @@ HANGMAN = (
 """)
 
 MAX_WRONG = len(HANGMAN) - 1
-WORDS = ("NADUŻYWANY", "MAŁŻ", "GUAM", "TAFTA", "PYTHON", "ANNA")
-
+WORDS = ("NADUŻYWANY", "MAŁŻ", "GUAM", "TAFTA", "PYTHON", "ANNA", "KREDKA")
 
 word = random.choice(WORDS)
 so_far = "-" * len(word)
@@ -151,4 +149,3 @@ else:
     
 print("\nZagadkowe słowo to", word)
 
-input("\n\nAby zakończyć program, naciśnij klawisz Enter.")
