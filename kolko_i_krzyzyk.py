@@ -1,7 +1,4 @@
-# Kółko i krzyżyk
 
-   
-# stałe globalne:
 X = "X"
 O = "O"
 EMPTY = " "
@@ -10,13 +7,9 @@ NUM_SQUARES = 9
 
 
 def display_instruct():
-    """Wyświetl instrukcję gry."""  
+ 
     print(
     """
-    Witaj w największym intelektualnym wyzwaniu wszech czasów, jakim jest
-    gra 'Kółko i krzyżyk'. Będzie to ostateczna rozgrywka między Twoim
-    ludzkim mózgiem a moim krzemowym procesorem.  
-
     Swoje posunięcie wskażesz poprzez wprowadzenie liczby z zakresu 0 - 8.
     Liczba ta odpowiada pozycji na planszy zgodnie z poniższym schematem:
     
@@ -24,15 +17,13 @@ def display_instruct():
                     ---------
                     3 | 4 | 5
                     ---------
-                    6 | 7 | 8
-
-    Przygotuj się, Człowieku.  Ostateczna batalia niebawem się rozpocznie. \n
-    """
+                    6 | 7 | 8 
+                    """
     )
 
 
 def ask_yes_no(question):
-    """Zadaj pytanie, na które można odpowiedzieć tak lub nie."""
+  
     response = None
     while response not in ("t", "n"):
         response = input(question).lower()
@@ -40,7 +31,7 @@ def ask_yes_no(question):
 
 
 def ask_number(question, low, high):
-    """Poproś o podanie liczby z odpowiedniego zakresu."""
+
     response = None
     while response not in range(low, high):
         response = int(input(question))
@@ -48,7 +39,7 @@ def ask_number(question, low, high):
 
 
 def pieces():
-    """Ustal, czy pierwszy ruch należy do gracza, czy do komputera."""
+ 
     go_first = ask_yes_no("Czy chcesz mieć prawo do pierwszego ruchu? (t/n): ")
     if go_first == "t":
         print("\nWięc pierwszy ruch należy do Ciebie.  Będzie Ci potrzebny.")
@@ -62,7 +53,7 @@ def pieces():
 
 
 def new_board():
-    """Utwórz nową planszę gry."""
+ 
     board = []
     for square in range(NUM_SQUARES):
         board.append(EMPTY)
@@ -70,7 +61,7 @@ def new_board():
 
 
 def display_board(board):
-    """Wyświetl planszę gry na ekranie."""
+
     print("\n\t", board[0], "|", board[1], "|", board[2])
     print("\t", "---------")
     print("\t", board[3], "|", board[4], "|", board[5])
@@ -79,7 +70,7 @@ def display_board(board):
 
 
 def legal_moves(board):
-    """Utwórz listę prawidłowych ruchów."""
+ 
     moves = []
     for square in range(NUM_SQUARES):
         if board[square] == EMPTY:
@@ -88,7 +79,7 @@ def legal_moves(board):
 
 
 def winner(board):
-    """Ustal zwycięzcę gry."""
+ 
     WAYS_TO_WIN = ((0, 1, 2),
                    (3, 4, 5),
                    (6, 7, 8),
@@ -110,7 +101,6 @@ def winner(board):
 
 
 def human_move(board, human):
-    """Odczytaj ruch człowieka."""  
     legal = legal_moves(board)
     move = None
     while move not in legal:
@@ -122,7 +112,6 @@ def human_move(board, human):
 
 
 def computer_move(board, computer, human):
-    """Spowoduj wykonanie ruchu przez komputer."""
     board = board[:]
     BEST_MOVES = (4, 0, 2, 6, 8, 1, 3, 5, 7)
 
@@ -151,7 +140,6 @@ def computer_move(board, computer, human):
 
 
 def next_turn(turn):
-    """Zmień wykonawcę ruchu."""
     if turn == X:
         return O
     else:
@@ -159,7 +147,6 @@ def next_turn(turn):
 
     
 def congrat_winner(the_winner, computer, human):
-    """Pogratuluj zwycięzcy."""
     if the_winner != TIE:
         print(the_winner, "jest zwycięzcą!\n")
     else:
@@ -201,4 +188,4 @@ def main():
 
 
 main()
-input("\n\nAby zakończyć grę, naciśnij klawisz Enter.")
+
